@@ -55,13 +55,13 @@ See `packup serve -h` and `packup build -h` for more usages.
 
 You can type check the script with [Deno][Deno].
 
-You need the following `tsconfig.json` for your frontend scripts correctly type
+You need the following `deno.jsonc` for your frontend scripts correctly type
 checked.
 
 ```json
 {
   "compilerOptions": {
-    "lib": ["esnext", "dom"]
+    "lib": ["deno.window", "deno.unstable", "dom.asynciterable"]
   }
 }
 ```
@@ -74,7 +74,7 @@ If you use vscode you need to set 'deno.config' property in
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": true,
-  "deno.config": "./tsconfig.json"
+  "deno.config": "./deno.jsonc"
 }
 ```
 
@@ -82,7 +82,7 @@ If you'd prefer to use CLI directly to type check your script, you can use the
 following command for it:
 
 ```sh
-deno cache --config tsconfig.json <script>
+deno cache --config deno.jsonc <script>
 ```
 
 See [the example repository](https://github.com/kt3k/packup_example) for more
