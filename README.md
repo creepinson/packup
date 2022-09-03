@@ -1,8 +1,8 @@
-<img src="https://raw.githubusercontent.com/kt3k/packup/main/docs/logo-v2.svg" width="400" />
+<img src="https://raw.githubusercontent.com/creepinson/packup/main/docs/logo-v2.svg" width="400" />
 
 # packup v0.1.12
 
-[![ci](https://github.com/kt3k/packup/actions/workflows/ci.yml/badge.svg)](https://github.com/kt3k/packup/actions/workflows/ci.yml)
+[![ci](https://github.com/creepinson/packup/actions/workflows/ci.yml/badge.svg)](https://github.com/creepinson/packup/actions/workflows/ci.yml)
 
 > Zero-config web application packager in [Deno][Deno].
 
@@ -55,13 +55,13 @@ See `packup serve -h` and `packup build -h` for more usages.
 
 You can type check the script with [Deno][Deno].
 
-You need the following `tsconfig.json` for your frontend scripts correctly type
+You need the following `deno.jsonc` for your frontend scripts correctly type
 checked.
 
 ```json
 {
   "compilerOptions": {
-    "lib": ["esnext", "dom"]
+    "lib": ["deno.window", "deno.unstable", "dom.asynciterable"]
   }
 }
 ```
@@ -74,7 +74,7 @@ If you use vscode you need to set 'deno.config' property in
   "deno.enable": true,
   "deno.lint": true,
   "deno.unstable": true,
-  "deno.config": "./tsconfig.json"
+  "deno.config": "./deno.jsonc"
 }
 ```
 
@@ -82,7 +82,7 @@ If you'd prefer to use CLI directly to type check your script, you can use the
 following command for it:
 
 ```sh
-deno cache --config tsconfig.json <script>
+deno cache --config deno.jsonc <script>
 ```
 
 See [the example repository](https://github.com/kt3k/packup_example) for more
@@ -141,10 +141,11 @@ command is the actual entrypoint of the packup program.
 - 2021-09-01 v0.0.16 Fix the message when the server starts #11
 - 2021-07-31 v0.0.15 Update `iterable_file_server`
 - 2021-07-01 v0.0.14 Fix @import-maps/resolve dependency
-  https://github.com/kt3k/packup/commit/4c502652315d5d15755be340318263dbd75fb12f
+  https://github.com/creepinson/packup/commit/4c502652315d5d15755be340318263dbd75fb12f
   . Remove --bundler options
-  https://github.com/kt3k/packup/commit/e66c76695e0415c9aeb97e8c1b477a828daf5c52
-- 2021-06-21 v0.0.13 Fix for windows https://github.com/kt3k/packup/pull/5.
+  https://github.com/creepinson/packup/commit/e66c76695e0415c9aeb97e8c1b477a828daf5c52
+- 2021-06-21 v0.0.13 Fix for windows
+  https://github.com/creepinson/packup/pull/5.
 
 # License
 
